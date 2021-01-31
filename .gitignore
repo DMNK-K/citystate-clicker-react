@@ -28,3 +28,4 @@ yarn-error.log*
 *.kra~
 /sounds
 *.ogg
+*.code-workspace

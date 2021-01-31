@@ -1,0 +1,88 @@
+/* css containing rules common for entirety of application, or for very top lvl parts of the DOM */
+*
+{
+	box-sizing: border-box;
+}
+
+body
+{
+  margin: 0;
+  padding:0;
+  background-image: url("images/misc_images/bcg.png");
+  background-repeat: repeat;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code
+{
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::-webkit-scrollbar {
+	width: 0.9vw;
+	background-color:rgb(255,255,255,0.1); 
+}
+
+::-webkit-scrollbar-thumb
+{
+	width:0.9vw;
+	background-color:rgb(255,255,255,0.3);
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	background-color:rgb(255,255,255,0.4);
+}
+
+:root
+{
+  --font_main: "Forum";
+  --font_mono: "Inconsolata";
+
+	--color_bcg1:rgba(0,15,24,0.66);
+	--color_bcg2:rgba(8,10,13,0.66);
+	--color_border:rgba( 62, 80, 91,0.3);
+	--color_tech:rgb(2,255,249);
+	--color_tech_transp:rgba(2,255,249,0.7);
+}
+
+button
+{
+  cursor:pointer;
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+button:disabled
+{
+  cursor: default;
+}
+
+.img_pf
+{
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: pixelated;
+}
+
+a
+{
+	color:var(--color_tech);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover
+{
+	text-shadow: 0 0 6px var(--color_tech);
+}
