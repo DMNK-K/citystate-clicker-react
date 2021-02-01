@@ -1,0 +1,42 @@
+.row
+{
+    height:45%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.panel_side, .panel_central
+{
+    height:100%;
+}
+
+.panel_side
+{
+    width: 25%;
+    background-color: var(--color_bcg1);
+    padding-top: 7px;
+    padding-bottom: 3px;
+}
+
+.panel_central
+{
+    width:50%;
+    background-color: var(--color_bcg2);
+    border-right: 1px solid var(--color_border);
+    border-left: 1px solid var(--color_border);
+}
+
+.panel_top
+{
+    border-bottom: 1px solid var(--color_border);
+}
+
+.panel_l
+{
+    box-shadow: 12px 0px 20px -8px black, inset 0 -30px 30px -30px black, inset 0 -30px 30px -30px black;
+}
+
+.panel_r
+{
+    box-shadow: -12px 0px 20px -8px black;
+}

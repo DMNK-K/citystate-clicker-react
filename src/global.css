@@ -4,6 +4,12 @@
 	box-sizing: border-box;
 }
 
+html
+{
+  height:100%;
+  padding:0;
+}
+
 body
 {
   margin: 0;
@@ -16,6 +22,14 @@ body
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root
+{
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family: var(--font_main);
 }
 
 code
@@ -47,7 +61,9 @@ code
 
 	--color_bcg1:rgba(0,15,24,0.66);
 	--color_bcg2:rgba(8,10,13,0.66);
-	--color_border:rgba( 62, 80, 91,0.3);
+  --color_border:rgba( 62, 80, 91,0.3);
+  --color_text_ui: rgb(240, 240, 240);
+  --color_good:rgba(0, 216, 108,1);
 	--color_tech:rgb(2,255,249);
 	--color_tech_transp:rgba(2,255,249,0.7);
 }
@@ -61,6 +77,8 @@ button
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-family:var(--font_main);
+  color:var(--color_text_ui);
 }
 
 button:disabled

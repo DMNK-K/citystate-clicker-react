@@ -1,0 +1,50 @@
+.msg_log
+{
+    width: 96%;
+    height: 78%;
+    background-color: rgba(240,240,240,0.02);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+    margin: 1% 2% 0 2%;
+    padding: 0.5% 3%;
+    border-radius: 0.4vw;
+    font-family: var(--font-main);
+    line-height: 1.4vh;
+    overflow: auto;
+}
+
+.msg_log p
+{
+    font-size: 1.05vw;
+}
+
+.msg_log span
+{
+    font-family: var(--font_mono);
+    font-size: 1.35vh;
+    opacity: 0.5;
+}
+
+.msg_bad
+{
+    color: rgba(255, 38, 38, 0.9);
+}
+
+.msg_warning
+{
+    color: rgba(255, 140, 25,0.8);
+}
+
+.msg_neutral
+{
+    color: var(--color_text_ui);
+}
+
+.msg_good
+{
+    color: var(--color_good);
+}
+
+.msg_unimportant
+{
+    color: rgba(255,255,255,0.35);
+}
