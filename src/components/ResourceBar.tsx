@@ -12,49 +12,50 @@ import IconHapp1 from '../images/resource_icons/icon_happl.png';
 import IconHapp2 from '../images/resource_icons/icon_happ2.png';
 import IconHapp3 from '../images/resource_icons/icon_happ3.png';
 import IconHapp4 from '../images/resource_icons/icon_happ4.png';
+import Resources from '../scripts/Resources';
 
-const ResourceBar: React.FC = () => 
+const ResourceBar: React.FC<{res: Resources, happ: number, pop: number}> = ({res, happ, pop}) => 
 {
     return (
         <div className="resource_bar">
             <div className="resource_bar_box">
                 <img alt="food icon" src={IconFood}/>
-                <span>0</span>
+                <span>{res.food}</span>
             </div>
             
             <div className="resource_bar_box">
                 <img alt="wood icon" src={IconWood}/>
-                <span>0</span>
+                <span>{res.wood}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="stone icon" src={IconStone}/>
-                <span>0</span>
+                <span>{res.stone}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="metal icon" src={IconMetal}/>
-                <span>0</span>
+                <span>{res.metal}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="currency icon" src={IconMoney}/>
-                <span>0</span>
+                <span>{res.currency}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="knowledge icon" src={IconKnowl}/>
-                <span>0</span>
+                <span>{res.knowledge}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="happiness icon" src={IconHapp3}/>
-                <span>0</span>
+                <span>{happ}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="population icon" src={IconPop}/>
-                <span>0</span>
+                <span>{pop}</span>
             </div>
 
         </div>

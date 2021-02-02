@@ -3,6 +3,7 @@ import CityItemMenu from './CityItemMenu';
 import './component_styles/StyleGame.css';
 import MessageLog from './MessageLog';
 import ResourceBar from './ResourceBar';
+import Resources from '../scripts/Resources';
 
 const Game: React.FC = () => 
 {
@@ -24,7 +25,7 @@ const Game: React.FC = () =>
                 <CityItemMenu/>
             </div>
             <div className="panel_central">
-                <ResourceBar/>
+                <ResourceBar res={Resources.zero} happ={0} pop={0}/>
                 <MessageLog/>
             </div>
             <div className="panel_side panel_r">

@@ -1,7 +1,7 @@
 import React from 'react';
 import './component_styles/StyleCityItem.css';
 
-const CityItem: React.FC = () => 
+const CityItemBox: React.FC = () => 
 {
     return (
         <div className="item_box">
@@ -26,4 +26,4 @@ const CityItem: React.FC = () =>
     );
 }
 
-export default CityItem;
+export default CityItemBox;
