@@ -40,3 +40,32 @@
 {
     box-shadow: -12px 0px 20px -8px black;
 }
+
+.mng_title
+{
+    width: 100%;
+    font-family: var(--main_font);
+    color: rgba(255,255,255,0.8);
+    font-size: 1.8vh;
+    text-align: center;
+    font-weight: normal;
+}
+
+.mng_wrapper
+{
+    width: 100%;
+    box-shadow: 0 5px 10px -2px rgb(0 0 0);
+    text-align: center;
+    display:flex;
+    justify-content: center;
+}
+
+.mng_wrapper_gathering
+{
+    height:20%;
+}
+
+.mng_wrapper_management
+{
+    height:33%;
+}

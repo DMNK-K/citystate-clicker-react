@@ -87,6 +87,15 @@ button:disabled
   cursor: default;
 }
 
+.button_standard
+{
+  color:var(--color_text_ui);
+	font-family:var(--font_main);
+	text-shadow:0 0 6px black;
+	border:1px solid rgba(255,255,255,0.07);
+  background-color:rgba(255,255,255,0.04);
+}
+
 .img_pf
 {
   image-rendering: -moz-crisp-edges;

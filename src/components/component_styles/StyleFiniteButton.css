@@ -1,0 +1,63 @@
+.finite_button
+{
+	position:relative;
+	margin:0 1.5%;
+	width:19%;
+	height:60%;
+
+	font-family:"Forum";
+	font-size:1.4vh;
+	font-weight:bold;
+	color:var(--color_text_ui);
+
+	box-shadow:0 6px 0 rgba(255,255,255,0.2), 0 5px 15px black;
+	background-color:rgba(56, 82, 94, 0.3);
+
+	border:1px solid rgba(255,255,255,0.7);
+	border-radius:12px;
+
+	transition:0.1s box-shadow, 0.1s margin,
+	0.3s background-color, 0.2s font-size,0.3s text-shadow;
+}
+
+.finite_button:hover
+{
+	text-shadow:0 0 3px rgb(255,255,255);
+	font-size:1.6vh;
+	background-color:rgba(0, 70, 103,1);
+}
+
+.finite_button:active
+{
+	margin-top:6px;
+	box-shadow:0 0px 0 rgba(255,255,255,0.35);
+}
+
+.finite_button:disabled
+{
+	color:rgba(255,255,255,0.4);
+	background-color:rgba(74, 102, 114, 0.3);
+	text-shadow:0 0 4px black;
+}
+
+.finite_button:disabled:hover
+{
+	font-size:1.4vh;
+	text-shadow:0 0 4px black;
+}
+
+.finite_button:disabled .finite_button_amount
+{
+	background-color:rgba(255,255,255,0.4);
+}
+
+.finite_button_amount
+{
+	background-color:var(--color_text_ui);
+	width:60%;
+	height:4px;
+	position: absolute;
+	top:75%;
+	left:20%;
+	pointer-events: none;
+}
