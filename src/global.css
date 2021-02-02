@@ -63,6 +63,7 @@ code
 	--color_bcg2:rgba(8,10,13,0.66);
   --color_border:rgba( 62, 80, 91,0.3);
   --color_text_ui: rgb(240, 240, 240);
+  --color_text_ui_sec: rgb(225, 225, 225);
   --color_good:rgba(0, 216, 108,1);
 	--color_tech:rgb(2,255,249);
 	--color_tech_transp:rgba(2,255,249,0.7);

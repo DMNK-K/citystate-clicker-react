@@ -1,7 +1,13 @@
 .item_box
 {
-    height: 11.5vh;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    --box_height: 11.5vh;
+    --box_padding_h: 0.75vh;
+    height: var(--box_height);
     width: 97%;
+    padding:0 var(--box_padding_h) 0;
     margin-left: 1.5%;
     background-color: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.06);
@@ -12,28 +18,29 @@
     transition: 0.2s background-color, 0.2s border;
 }
 
+.item_box:hover
+{
+    background-color: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.15);
+}
+
 .item_img_wrapper
 {
-    display: inline-block;
-    height: 10vh;
-    margin-top: 0.7vh;
-    margin-left: 0.75vh;
-    width: 10vh;
+    height: calc(var(--box_height) - (2 * var(--box_padding_h)));
+    width: calc(var(--box_height) - (2 * var(--box_padding_h)));
     background-color: var(--color_bcg1);
-    padding: 0;
     border-radius: 0.5vh;
     position: relative;
 }
 
 .item_content
 {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 1.5vh;
-    width: calc(97% - 11.5vh);
-    margin-left: 2.5%;
+    width: calc(100% - var(--box_height) + (2 * var(--box_padding_h)));
     color: rgb(240,240,240);
     font-family: var(--font_main);
+    align-self:flex-start;
+    margin-top:calc(var(--box_padding_h) * 2);
+    padding-left: 3%;
 }
 
 .item_img
@@ -55,25 +62,26 @@
     color: white;
 }
 
-.item_name
+.item_content_bar
 {
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-    width: 40%;
-    height: 2.5vh;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 1.25vw;
+    display:flex;
+    justify-content: space-between;
+    height:2.5vh;
+    margin-bottom: 0.8vh;
 }
 
-.item_cost_bar
+.item_name
 {
-    display: inline-block;
-    width: 60%;
-    height: 2.5vh;
+    height: 100%;
+    margin: 0;
+    font-size: 1.25vw;
+    font-weight: 400;
+}
+
+.item_cost
+{
+    height: 100%;
     text-align: right;
-    margin-top: 0.2vh;
     font-size: 0.83vw;
 }
 
@@ -96,6 +104,7 @@
     position: absolute;
     z-index: 800;
     text-shadow: 1px 1px 5px rgb(0 0 0);
+    font-weight: 400;
 }
 
 .item_progress_indicator
@@ -111,5 +120,8 @@
 {
     margin-top: 0.8vh;
     font-size: 0.78vw;
-    color: rgb(225,225,225);
+    color: var(--color_text_ui_sec);
+    font-weight: 400;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }

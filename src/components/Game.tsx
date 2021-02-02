@@ -4,6 +4,7 @@ import './component_styles/StyleGame.css';
 import MessageLog from './MessageLog';
 import ResourceBar from './ResourceBar';
 import Resources from '../scripts/Resources';
+import MidView from './MidView';
 
 const Game: React.FC = () => 
 {
@@ -14,10 +15,10 @@ const Game: React.FC = () =>
                 <CityItemMenu/>
             </div>
             <div className="panel_top panel_central">
-
+                <MidView viewCity={null} viewPantheon={null} viewMilitary={null} viewWorld={null}/>
             </div>
             <div className="panel_top panel_side panel_r">
-
+                
             </div>
         </div>
         <div className="row">
