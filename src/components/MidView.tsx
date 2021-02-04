@@ -7,11 +7,13 @@ interface PropsMidView
     viewCity: ReactNode | null,
     viewWorld: ReactNode | null,
     viewMilitary: ReactNode | null,
+    year: number,
+    day: number
 }
 
 enum MidViews{Pantheon, Military, World, City};
 
-const MidView: React.FC<PropsMidView> = ({viewPantheon, viewCity, viewMilitary, viewWorld}) =>
+const MidView: React.FC<PropsMidView> = ({viewPantheon, viewCity, viewMilitary, viewWorld, year, day}) =>
 {
 
     const [currentView, setCurrentView] = useState<MidViews>(MidViews.City);
@@ -31,7 +33,7 @@ const MidView: React.FC<PropsMidView> = ({viewPantheon, viewCity, viewMilitary, 
 
     return(
         <div className="mid_view_space">
-            <div className="mid_view_tab time_box">Day 200 of year 1</div>
+            <div className="mid_view_tab time_box">Day {day} of year {year}</div>
             {viewPantheon && <button onClick={()=>setCurrentView(MidViews.Pantheon)} className="mid_view_tab pantheon_tab">Pantheon</button>}
             {viewCity && <button onClick={()=>setCurrentView(MidViews.City)} className="mid_view_tab city_view_tab">City View</button>}
             {viewWorld && <button onClick={()=>setCurrentView(MidViews.World)} className="mid_view_tab world_view_tab">World View</button>}

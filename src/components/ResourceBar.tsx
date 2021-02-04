@@ -20,37 +20,37 @@ const ResourceBar: React.FC<{res: Resources, happ: number, pop: number}> = ({res
         <div className="resource_bar">
             <div className="resource_bar_box">
                 <img alt="food icon" src={IconFood}/>
-                <span>{res.food}</span>
+                <span>{Math.trunc(res.food)}</span>
             </div>
             
             <div className="resource_bar_box">
                 <img alt="wood icon" src={IconWood}/>
-                <span>{res.wood}</span>
+                <span>{Math.trunc(res.wood)}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="stone icon" src={IconStone}/>
-                <span>{res.stone}</span>
+                <span>{Math.trunc(res.stone)}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="metal icon" src={IconMetal}/>
-                <span>{res.metal}</span>
+                <span>{Math.trunc(res.metal)}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="currency icon" src={IconMoney}/>
-                <span>{res.currency}</span>
+                <span>{Math.trunc(res.currency)}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="knowledge icon" src={IconKnowl}/>
-                <span>{res.knowledge}</span>
+                <span>{Math.trunc(res.knowledge)}</span>
             </div>
 
             <div className="resource_bar_box">
                 <img alt="happiness icon" src={IconHapp3}/>
-                <span>{happ}</span>
+                <span>{Math.trunc(happ) + "%"}</span>
             </div>
 
             <div className="resource_bar_box">
