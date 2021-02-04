@@ -57,7 +57,10 @@
     box-shadow: 0 5px 10px -2px rgb(0 0 0);
     text-align: center;
     display:flex;
+    flex-direction: row;
     justify-content: center;
+    align-content: flex-start;
+	flex-wrap: wrap;
 }
 
 .mng_wrapper_gathering

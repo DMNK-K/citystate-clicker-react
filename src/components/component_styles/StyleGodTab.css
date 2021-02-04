@@ -1,0 +1,78 @@
+.god_tab
+{
+    width: 18%;
+    position: relative;
+    display: inline-block;
+    height: 80%;
+    margin-top: 6%;
+    margin-left: 1%;
+    padding: 1%;
+    vertical-align: bottom;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+}
+
+.god_left
+{
+    border-right: 15px solid rgba(255,255,255,0.7);
+}
+
+.god_right
+{
+    border-left: 15px solid rgba(255,255,255,0.7);
+}
+
+.god_left, .god_right
+{
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    cursor: pointer;
+    transition: 0.2s border;
+}
+
+.god_circle
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: calc(90% - 30px);
+    padding-bottom: calc(90% - 30px);
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    background-size: cover;
+}
+
+.god_name
+{
+    font-size: 0.9vw;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.god_desc
+{
+    font-size: 0.72vw;
+    margin-top: 5%;
+}
+
+.god_accept
+{
+    position: absolute;
+    width: 45%;
+    height: 11%;
+    background-color: rgba(255,255,255,0.08);
+    border: 1px solid var(--color_tech_transp);
+    border-radius: 6px;
+    color: var(--color_text_ui);
+    font-family: var(--main_font);
+    font-size: 0.8vw;
+    bottom: 3%;
+    left: 29%;
+    transition: 0.3s all;
+    box-shadow: 0 0 8px var(--tech_color), inset 0 0 3px black;
+}

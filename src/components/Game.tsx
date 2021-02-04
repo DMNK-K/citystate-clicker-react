@@ -7,9 +7,20 @@ import Resources from '../scripts/Resources';
 import MidView from './MidView';
 import FiniteButton from './FiniteButton';
 import ManageButton from './ManageButton';
+import GodTab from './GodTab';
 
 const Game: React.FC = () => 
 {
+
+    const viewCity = <div></div>;
+    const viewPantheon = <div className="mid_view">
+        <GodTab/>
+        <GodTab/>
+        <GodTab/>
+        <GodTab/>
+        <GodTab/>
+    </div>;
+
     return (
         <Fragment>
         <div className="row">
