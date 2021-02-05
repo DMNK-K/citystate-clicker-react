@@ -10,6 +10,7 @@ import ManageButton from './ManageButton';
 import GodTab from './GodTab';
 import CityItem from '../scripts/CityItem';
 import TimeConfig from '../config/TimeConfig';
+
 const Game: React.FC = () => 
 {
     useEffect(() => {
@@ -31,8 +32,16 @@ const Game: React.FC = () =>
     const [happ, setHapp] = useState<number>(70);
     const [researchedTech, setResearchedTech] = useState<CityItem[]>([]);
     const [availableTech, setAvailableTech] = useState<CityItem[]>([]);
+    const [unavailableTech, setUnavailableTech] = useState<CityItem[]>([]);
     const [builtBld, setBuiltBld]= useState<CityItem[]>([]);
     const [availableBld, setAvailableBld]= useState<CityItem[]>([]);
+    const [unavailableBld, setUnavailableBld]= useState<CityItem[]>([]);
+
+    //a lot of these variables could be inferred into local variables based on other state variables
+    //but they are kept as a separate state to avoid looping through and
+    //inferring all the time, eg constrSlotsInUse could be determined by looping through
+    //availableBld and checking how many of them have inProgress = true, but it can also be set
+    //every time construction starts and stops
     const [constrSlotsInUse, setConstrSlotsInUse] = useState<number>(0);
     const [constrSlots, setConstrSlots] = useState<number>(1);
     const [constrForce, setConstrForce] = useState<number>(4);
@@ -49,6 +58,7 @@ const Game: React.FC = () =>
     {
         keepTime();
         profit();
+        progressConstruction();
     }
 
     function keepTime(): void
@@ -83,6 +93,23 @@ const Game: React.FC = () =>
         setResources(resources.add(res).clamp(Resources.zero, storage));
     }
 
+    function progressConstruction(): void
+    {
+        for (let i: number = 0; i < availableBld.length; i++)
+        {
+            
+        }
+        for (let i: number = 0; i < builtBld.length; i++)
+        {
+            
+        }
+    }
+
+    function progressTech(): void
+    {
+        
+    }
+
     function tryStartResearch(tech: CityItem)
     {
         if (tech.isTech && tech.canLvlUp && resources.biggerEqThan(tech.cost) && !researching)
@@ -98,6 +125,8 @@ const Game: React.FC = () =>
             
         }
     }
+    const dayIsDivBy5: boolean = day % 5 === 0;
+    console.log(dayIsDivBy5);
 
     const viewCity: React.ReactNode = <div></div>;
     const viewPantheon: React.ReactNode = <div className="mid_view">

@@ -7,6 +7,8 @@ class CityItem
     desc: string = "";
     iconName: string = "";
 
+    position: number[] | null | "special" = null;
+
     isTech: boolean = false;
     isInProgress: boolean = false;
 
