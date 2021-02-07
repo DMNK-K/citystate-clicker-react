@@ -10,32 +10,37 @@ import ManageButton from './ManageButton';
 import GodTab from './GodTab';
 import CityItem from '../scripts/CityItem';
 import TimeConfig from '../config/TimeConfig';
+import Loader from '../scripts/Loader';
+import Saver from '../scripts/Saver';
 
-const Game: React.FC = () => 
+const Game: React.FC<{loader: Loader}> = ({loader}) => 
 {
+    //this one on every rerender
     useEffect(() => {
+        window.addEventListener("beforeunload", handleExit);
         const intervalSlow = setInterval(clockSlow, TimeConfig.slowClockInterval);
         const intervalFast = setInterval(clockFast, TimeConfig.fastClockInterval);
         return () => {
             clearInterval(intervalSlow);
             clearInterval(intervalFast);
+            window.removeEventListener("beforeunload", handleExit);
         }
     });
 
-    const [tick, setTick] = useState<number>(0);
-    const [day, setDay] = useState<number>(0);
-    const [year, setYear] = useState<number>(1);
+    const [tick, setTick] = useState<number>(loader.loadTicks());
+    const [day, setDay] = useState<number>(loader.loadDay());
+    const [year, setYear] = useState<number>(loader.loadYear());
 
-    const [resources, setResources] = useState<Resources>(Resources.zero);
-    const [storage, setStorage] = useState<Resources>(Resources.zero);
-    const [pop, setPop] = useState<number>(20);
-    const [happ, setHapp] = useState<number>(70);
-    const [researchedTech, setResearchedTech] = useState<CityItem[]>([]);
-    const [availableTech, setAvailableTech] = useState<CityItem[]>([]);
-    const [unavailableTech, setUnavailableTech] = useState<CityItem[]>([]);
-    const [builtBld, setBuiltBld]= useState<CityItem[]>([]);
-    const [availableBld, setAvailableBld]= useState<CityItem[]>([]);
-    const [unavailableBld, setUnavailableBld]= useState<CityItem[]>([]);
+    const [resources, setResources] = useState<Resources>(loader.loadResources());
+    const [storage, setStorage] = useState<Resources>(loader.loadStorage());
+    const [pop, setPop] = useState<number>(loader.loadPop());
+    const [happ, setHapp] = useState<number>(loader.loadHapp());
+    const [researchedTech, setResearchedTech] = useState<CityItem[]>(loader.loadResearchedTech());
+    const [availableTech, setAvailableTech] = useState<CityItem[]>(loader.loadAvailableTech());
+    const [unavailableTech, setUnavailableTech] = useState<CityItem[]>(loader.loadUnavailableTech());
+    const [builtBld, setBuiltBld]= useState<CityItem[]>(loader.loadBuiltBuildings());
+    const [availableBld, setAvailableBld]= useState<CityItem[]>(loader.loadAvailableBuildings());
+    const [unavailableBld, setUnavailableBld]= useState<CityItem[]>(loader.loadUnavailableBuildings());
 
     //a lot of these variables could be inferred into local variables based on other state variables
     //but they are kept as a separate state to avoid looping through and
@@ -47,6 +52,11 @@ const Game: React.FC = () =>
     const [constrForce, setConstrForce] = useState<number>(4);
     const [researchForce, setResearchForce] = useState<number>(1);
     const [researching, setResearching] = useState<boolean>(false);
+
+    function handleExit(): void
+    {
+        Saver.saveGame(resources, happ, pop, [...builtBld, ...researchedTech], tick, day, year)
+    }
 
     //main clocks of the game
     function clockSlow(): void
@@ -69,6 +79,7 @@ const Game: React.FC = () =>
             {
                 setYear(year + 1);
                 setDay(1);
+                Saver.saveGame(resources, happ, pop, [...builtBld, ...researchedTech], tick, day, year);
             }
             else
             {
@@ -141,7 +152,7 @@ const Game: React.FC = () =>
         <Fragment>
         <div className="row">
             <div className="panel_top panel_side panel_l">
-                <CityItemMenu/>
+                <CityItemMenu items={builtBld}/>
             </div>
             <div className="panel_top panel_central">
                 <MidView day={day} year={year} viewCity={null} viewPantheon={null} viewMilitary={null} viewWorld={null}/>
@@ -167,14 +178,14 @@ const Game: React.FC = () =>
         </div>
         <div className="row">
             <div className="panel_side panel_l">
-                <CityItemMenu/>
+                <CityItemMenu items={availableBld}/>
             </div>
             <div className="panel_central">
                 <ResourceBar res={resources} happ={happ} pop={pop}/>
                 <MessageLog/>
             </div>
             <div className="panel_side panel_r">
-                <CityItemMenu/>
+                <CityItemMenu items={availableTech}/>
             </div>
         </div>
         </Fragment>

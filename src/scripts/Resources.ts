@@ -78,6 +78,11 @@ class Resources
         }
         return result;
     }
+
+    static createFromJSON(json: {food: number, wood:number, stone:number, metal:number, currency:number, knowledge:number})
+    {
+        return new Resources(json.food, json.wood, json.stone, json.metal, json.currency, json.knowledge);
+    }
 }
 
 export default Resources;

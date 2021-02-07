@@ -1,0 +1,7 @@
+{
+    "specializedTools":{
+        "uiName":"Specialized Tools",
+        "desc":"Unlocks stonework, screw pump and wheel technologies, the lumberjack camp building and enables stone gathering.",
+        "prereq":[{"reqName": "palace", "reqLvl": 1}]
+    }
+}

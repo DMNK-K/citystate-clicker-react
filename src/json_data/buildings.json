@@ -1,0 +1,25 @@
+{
+    "granary": {
+        "uiName": "Granary",
+        "lvlMax": 5,
+        "desc": "Increases food storage capacity.",
+        "position": [57, 65],
+        "prereq":[]
+    },
+
+    "farmland": {
+        "uiName": "Farmland",
+        "lvlMax": 5,
+        "desc": "Provides a constant supply of food.",
+        "position": "special",
+        "prereq":[]
+    },
+
+    "library": {
+        "uiName": "Library",
+        "lvlMax": 5,
+        "desc": "Unlocks new research, provides a slow, slightly random flow of knowledge and increases knowledge storage.",
+        "position": [44, 42],
+        "prereq": [{"reqName": "writing", "reqLvl": 1}]
+    }
+}
