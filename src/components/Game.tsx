@@ -12,6 +12,8 @@ import CityItem from '../scripts/CityItem';
 import TimeConfig from '../config/TimeConfig';
 import Loader from '../scripts/Loader';
 import Saver from '../scripts/Saver';
+import GatheringStats from '../scripts/GatheringStats';
+import Feature from '../scripts/Feature';
 
 const Game: React.FC<{loader: Loader}> = ({loader}) => 
 {
@@ -52,6 +54,15 @@ const Game: React.FC<{loader: Loader}> = ({loader}) =>
     const [constrForce, setConstrForce] = useState<number>(4);
     const [researchForce, setResearchForce] = useState<number>(1);
     const [researching, setResearching] = useState<boolean>(false);
+
+    const [gatheringStats, setGatheringStats] = useState<GatheringStats[]>([
+        new GatheringStats("Food", Resources.f, Resources.f.mult(3), 0.025, 2000, 10),
+        new GatheringStats("Wood", Resources.w, Resources.w.mult(2), 0.025, 3000, 8),
+        new GatheringStats("Stone", Resources.s, new Resources(0, 0, 2, 1, 0, 0), 0.025, 5000, 5),
+        new GatheringStats("Metal", Resources.m, new Resources(0, 0, 0, 4, 3, 0), 0.025, 5000, 4),
+    ]);
+
+    const [features, setFeatures] = useState<Feature[]>([]);
 
     function handleExit(): void
     {
@@ -148,6 +159,10 @@ const Game: React.FC<{loader: Loader}> = ({loader}) =>
         <GodTab/>
     </div>;
 
+    const gatheringButtons = gatheringStats.map((stat) => 
+        <FiniteButton key={stat.name} text={stat.name} disabled={false} onSuccess={() => gather(stat.base)} onLucky={() => gather(stat.lucky)} luckChance={stat.luckChance} availableMax={stat.availableMax} replenishTimeMs={stat.replenishTime} minSuccessChance={35}/>
+    );
+
     return (
         <Fragment>
         <div className="row">
@@ -160,10 +175,7 @@ const Game: React.FC<{loader: Loader}> = ({loader}) =>
             <div className="panel_top panel_side panel_r">
                 <h2 className="mng_title">Gathering Resources</h2>
                 <div className="mng_wrapper mng_wrapper_gathering">
-                    <FiniteButton text="Food"/>
-                    <FiniteButton text="Wood"/>
-                    <FiniteButton text="Stone"/>
-                    <FiniteButton text="Metal"/>
+                    {gatheringButtons}
                 </div>
                 <h2 className="mng_title">Management</h2>
 <               div className="mng_wrapper mng_wrapper_management">

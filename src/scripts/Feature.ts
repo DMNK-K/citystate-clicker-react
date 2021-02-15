@@ -1,4 +1,4 @@
-enum Features
+enum Feature
 {
     Research,
     Pantheon,
@@ -13,4 +13,4 @@ enum Features
     Trade,
 }
 
-export default Features;
+export default Feature;

@@ -19,8 +19,14 @@ class Resources
         this.knowledge = k;
     }
 
-    //shorthand
+    //shorthands
     static get zero(): Resources {return new Resources(0, 0, 0, 0, 0, 0);}
+    static get f(): Resources {return new Resources(1, 0, 0, 0, 0, 0);}
+    static get w(): Resources {return new Resources(0, 1, 0, 0, 0, 0);}
+    static get s(): Resources {return new Resources(0, 0, 1, 0, 0, 0);}
+    static get m(): Resources {return new Resources(0, 0, 0, 1, 0, 0);}
+    static get c(): Resources {return new Resources(0, 0, 0, 0, 1, 0);}
+    static get k(): Resources {return new Resources(0, 0, 0, 0, 0, 1);}
 
     add(other: Resources) : Resources
     {
